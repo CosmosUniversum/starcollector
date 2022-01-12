@@ -7,6 +7,7 @@
 
 
 {% block content %}
+
 <section class="page-header">
   <h1>Star List</h1>
   <img src="{% static 'images/navbar-bg.png' %}" alt="New Mexico Northern Hemisphere">
@@ -14,7 +15,16 @@
 
 <section class="card-container">
   {% for star in stars %}
-    <h1>{{star.name}}</h1>
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img src="{% static 'images/navbar-bg.png' %}" alt="New Mexico Northern Hemisphere">
+          <h2 class="card-title">{{star.name}}</h2>
+          <p>A {{star.type}} star that is {{star.distance}} light years away from our solar system.</p>
+        </div>
+      </div>
+    </div>
   {% endfor %}
 </section>
+
 {% endblock content %}
