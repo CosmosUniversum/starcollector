@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock head %}
+
+{% block content %}
+  <section class="logo-container">
+    <div class="star-container">
+      <img src="{% static 'images/pexels-rakicevic-nenad-1274260.jpg'%}" alt="Star collecting Jar">
+    </div>
+    <h1>Star Collector</h1>
+  </section>
+{% endblock content %}

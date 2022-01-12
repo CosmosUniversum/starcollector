@@ -36,3 +36,6 @@
   margin: 5px 0;
   font-size: var(--font-reg);
 }
+.page-header img {
+  width: 80px;
+}
