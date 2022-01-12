@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/star-detail.css' %}"
+/>
+{% endblock head %}
+
+{% block content %}
+
+<section class="star-container">
+  <div class="star-img">
+    <img 
+      src="{% static 'images/navbar-bg.png' %}" 
+      alt="New Mexico Darksky"
+    >
+  </div>
+  <div class="star-details">
+    <h1>{{ star.name }}</h1>
+    <p>A {{star.type}} Star that is {{star.distance}} light years away from our solar system in the Constellation of {{star.constellation}}.</p>
+  </div>
+</section>
+
+{% endblock content %}
