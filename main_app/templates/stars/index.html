@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type='text.css' href="{% static 'css/star-index.css' %}">
+<link rel="stylesheet" type='text/css' href="{% static 'css/star-index.css' %}">
 {% endblock head %}
 
 
@@ -20,7 +20,7 @@
         <div class="card-img-container">
           <img src="{% static 'images/navbar-bg.png' %}" alt="New Mexico Northern Hemisphere">
           <h2 class="card-title">{{star.name}}</h2>
-          <p>A {{star.type}} star that is {{star.distance}} light years away from our solar system.</p>
+          <p>A {{star.type}} star that is {{star.distance}} light years away from our solar system in constellation {{star.constellation}}.</p>
         </div>
       </div>
     </div>
