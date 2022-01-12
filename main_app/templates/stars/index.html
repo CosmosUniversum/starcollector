@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type='text.css' href="{% static 'css/star-index.css' %}">
+{% endblock head %}
+
+
+{% block content %}
+<section class="page-header">
+  <h1>Star List</h1>
+  <img src="{% static 'images/navbar-bg.png' %}" alt="New Mexico Northern Hemisphere">
+</section>
+
+<section class="card-container">
+  {% for star in stars %}
+    <h1>{{star.name}}</h1>
+  {% endfor %}
+</section>
+{% endblock content %}
