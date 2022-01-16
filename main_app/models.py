@@ -1,4 +1,6 @@
+import imp
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -10,3 +12,7 @@ class Star(models.Model):
 
   def __str__(self):
       return self.name
+
+  def get_absolute_url(self):
+      return reverse("stars_detail", kwargs={"star_id": self.id})
+  

@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Star
+from main_app import models
 
 # Create your views here.
 def home(request):
@@ -15,3 +17,7 @@ def stars_index(request):
 def stars_detail(request, star_id):
   star = Star.objects.get(id=star_id)
   return render(request, 'stars/detail.html', {'star': star})
+
+class StarCreate(CreateView):
+  model = Star
+  fields = '__all__'

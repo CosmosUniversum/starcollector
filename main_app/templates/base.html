@@ -19,18 +19,21 @@
 <body>
   <header>
     <div class="header-logo-container">
+      <h1>
       <a href="/">
         <img
           src="{% static 'images/pexels-rakicevic-nenad-1274260.jpg' %}" 
           alt="The Star Collector Logo"
         >
-        <h2>Star Collector</h2>
+        Star Collector
       </a>
+    </h1>
     </div>
     <nav>
       <ul>
-        <li><a href="/stars">All Stars</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="{% url 'stars_index' %}">All Stars</a></li>
+        <li><a href="{% url 'stars_create' %}">Add a Star</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
       </ul>
     </nav>
   </header>

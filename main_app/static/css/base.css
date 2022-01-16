@@ -26,11 +26,11 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   min-height: 100vh;
-  --nav-bg: rgba(104, 197, 248, .7);
-  --nav-bg-ff: rgba(104, 197, 248, .9);
-  --borders: rgb(36, 116, 248) solid 2px;
+  --nav-bg: rgba(97, 31, 184, 0.7);
+  --nav-bg-ff: rgba(89, 12, 124, 0.9);
+  --borders: rgb(70, 7, 95) solid 2px;
   --text-color: rgb(17, 20, 17);
-  --link-hover-color: rgb(16, 56, 158);
+  --link-hover-color: rgb(44, 3, 110);
   --button-bg: rgb(245, 245, 245);
   --button-bg-hover: rgb(226, 226, 226);
   --submit: rgb(26, 128, 0);
@@ -191,6 +191,11 @@ nav li {
     width: 213px;
   }
 
+  .header-logo-container img {
+    height: 20px;
+    border-radius: 10px;
+  }
+
   .page-header h1 {
     font-size: var(--font-xtreme);
   }
@@ -255,7 +260,7 @@ nav li {
 
     nav,
     .header-logo-container {
-      background: rgba(104, 197, 248, .6);
+      background: rgba(147, 38, 219, 0.6);
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
     }

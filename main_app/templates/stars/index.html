@@ -16,10 +16,10 @@
 <section class="card-container">
   {% for star in stars %}
     <div class="card">
-      <a href="/stars/{{star.id}}">
+      <a href="{% url 'stars_detail' star.id %}">
         <div class="card-content">
           <div class="card-img-container">
-            <img src="{% static 'images/navbar-bg.png' %}" alt="New Mexico Northern Hemisphere">
+            {% comment %} <img src="{% static 'images/navbar-bg.png' %}" alt="New Mexico Northern Hemisphere"> {% endcomment %}
             <h2 class="card-title">{{star.name}}</h2>
             <p>A {{star.type}} Star that is {{star.distance}} light years away from our solar system in the Constellation of {{star.constellation}}.</p>
           </div>
