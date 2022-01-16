@@ -116,14 +116,14 @@
   margin-left: 16px;
 }
 
-.feedings h2,
-.toys h2 {
+.exoplanets h2,
+.atmosphere h2 {
   font-size: 3.2rem;
   margin: 0;
 }
 
-.feedings h3,
-.toys h3 {
+.exoplanets h3,
+.atmosphere h3 {
   font-size: var(--font-xl);
   margin: 10px 0;
 }
@@ -140,38 +140,38 @@
   padding: 3px;
 }
 
-.feedings table {
+.exoplanets table {
   width: calc(100% - 16px);
   text-align: left;
   border-collapse: collapse;
   margin: 0 8px;
 }
 
-.feedings td {
+.exoplanets td {
   padding: 8px 5px;
   font-size: var(--font-reg);
 }
 
-.feedings th {
+.exoplanets th {
   font-size: var(--font-l);
   padding: 5px 5px 0;
   border-bottom: rgb(36, 116, 248) solid 2px;
 }
 
-.feedings tr:nth-child(even) {
+.exoplanets tr:nth-child(even) {
   background-color: #f3f3fd;
 }
 
-.toy-container p {
+.atmosphere-container p {
   margin: 12px 0;
 }
 
-.toy-container a {
+.atmosphere-container a {
   text-decoration: none;
   color: #111;
 }
 
-.toy-container .btn {
+.atmosphere-container .btn {
   padding: 3px 10px;
   margin-left: 10px;
 }
@@ -201,19 +201,19 @@
     margin-right: 25px;
   }
 
-  .feedings-toy-container {
+  .exoplanets-atmosphere-container {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
   }
 
-  .feedings-toy-container > section {
+  .exoplanets-atmosphere-container > section {
     width: 45%;
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .feedings-toy-container {
+  .exoplanets-atmosphere-container {
     padding: 0 40px;
   }
 }

@@ -15,4 +15,12 @@ class Star(models.Model):
 
   def get_absolute_url(self):
       return reverse("stars_detail", kwargs={"star_id": self.id})
-  
+
+
+class Exoplanet(models.Model):
+  name = models.CharField(max_length=100)
+  atmosphere = models.CharField(max_length=200)
+  star = models.ForeignKey(Star, on_delete=models.CASCADE)
+
+  def __str__(self):
+      return self.name

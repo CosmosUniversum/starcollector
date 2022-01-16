@@ -27,5 +27,29 @@
     </div>
   </div>
 </section>
+<div class="exoplanets-atmosphere-container">
+  <section class="exoplanets">
+    <div class="subsection-title">
+      <h2>Exoplanets</h2>
+      <img 
+        src="{% static 'images/Planets.png' %}" 
+        alt="Scattered planets"
+      />
+    </div>
+    <table>
+      <thead>
+        <tr><th>Exoplanet</th><th>Atmosphere</th></tr>
+      </thead>
+      <tbody>
+        {% for exoplanet in star.exoplanet_set.all %}
+          <tr>
+            <td>{{exoplanet.name}}</td>
+            <td>{{exoplanet.atmosphere}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 
 {% endblock content %}
