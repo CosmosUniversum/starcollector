@@ -13,10 +13,7 @@
 
 <section class="star-container">
   <div class="star-img">
-    <img 
-      src="{% static 'images/navbar-bg.png' %}" 
-      alt="New Mexico Darksky"
-    >
+    This will be where the star image is
   </div>
   <div class="star-details">
     <h1>{{ star.name }}</h1>
@@ -36,6 +33,13 @@
         alt="Scattered planets"
       />
     </div>
+    <h3>Add an Exoplanet</h3>
+    <form method="post" class="subsection-content">
+      {% csrf_token %}
+      {{ exoplanet_form.as_p }}
+      <button type="submit" class='btn submit'>Add Exoplanet</button>
+    </form>
+    <h3>Observed Exoplanets</h3>
     <table>
       <thead>
         <tr><th>Exoplanet</th><th>Atmosphere</th></tr>

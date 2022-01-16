@@ -24,7 +24,7 @@
   margin-top: 20px;
 }
 
-.feedings-toy-container {
+.exoplanets-atmosphere-container {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
@@ -41,35 +41,11 @@
   margin: 0 8px;
 }
 
-.toy-container {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 .color-block {
   opacity: 0.8;
   height: 25px;
   width: 25px;
   margin-right: 10px;
-}
-
-.unfed,
-.fed,
-.no-toys,
-.all-toys {
-  margin: 0;
-  font-weight: bold;
-}
-
-.unfed,
-.no-toys {
-  color: var(--danger);
-}
-
-.fed,
-.all-toys {
-  color: var(--submit);
 }
 
 .star-details h1 {
@@ -94,7 +70,7 @@
   margin: 5px 0;
 }
 
-.feedings-toy-container > section {
+.exoplanets-atmosphere-container > section {
   width: 80%;
   min-width: 360px;
   border: var(--borders);
