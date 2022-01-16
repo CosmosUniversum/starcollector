@@ -1,5 +1,6 @@
+from dataclasses import field
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Star
 from main_app import models
 
@@ -21,3 +22,11 @@ def stars_detail(request, star_id):
 class StarCreate(CreateView):
   model = Star
   fields = '__all__'
+
+class StarUpdate(UpdateView):
+  model = Star
+  fields = '__all__'
+
+class StarDelete(DeleteView):
+  model = Star
+  success_url = '/stars/'

@@ -21,6 +21,10 @@
   <div class="star-details">
     <h1>{{ star.name }}</h1>
     <p>A {{star.type}} Star that is {{star.distance}} light years away from our solar system in the Constellation of {{star.constellation}}.</p>
+    <div class="star-actions">
+      <a href="{% url 'stars_update' star.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'stars_delete' star.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 

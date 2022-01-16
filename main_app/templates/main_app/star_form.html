@@ -6,8 +6,15 @@
 {% endblock head %}
 
 {% block content %}
+
+
+
   <div class="page-header">
-    <h1>Add a Star</h1>
+    {% if object %}
+      <h1>Edit {{object.name}} </h1>
+    {% else %}
+      <h1>Add a Start</h1>
+    {% endif %}
     <img src="{% static 'images/Universe-man-sitting.jpg' %}" alt="A Universe Creating a star"/>
   </div>
   <form action="" method="post" class="form-container">
@@ -17,4 +24,5 @@
     </table>
     <button type="submit" class="btn submit">Submit!</button>
   </form>
+
 {% endblock content %}
