@@ -1,9 +1,14 @@
 from dataclasses import field
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Exoplanet, Star
+from .models import Exoplanet, Star, Photo
 from main_app import models
 from .forms import ExoplanetForm
+import uuid
+import boto3
+
+S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
+BUCKET = 'starcollector'
 
 # Create your views here.
 def home(request):
@@ -50,3 +55,20 @@ class ExoplanetUpdate(UpdateView):
 class ExoplanetDelete(DeleteView):
   model = Exoplanet
   success_url = '/stars/'
+
+def add_photo(request, star_id):
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3')
+    key = uuid.uuid4().hex + photo_file.name[photo_file.name.rfind('.'):]
+    try:
+      s3.upload_fileobj(photo_file, BUCKET, key)
+      url = f"{S3_BASE_URL}{BUCKET}/{key}"
+      photo = Photo(url=url, star_id=star_id)
+      star_photo = Photo.objects.filter(star_id=star_id)
+      if star_photo.first():
+        star_photo.first().delete()
+      photo.save()
+    except Exception as err:
+      print('An error occurred uploading file to S3: %s' % err)
+    return redirect('stars_detail', star_id=star_id)

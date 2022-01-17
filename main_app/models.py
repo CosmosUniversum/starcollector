@@ -23,3 +23,10 @@ class Exoplanet(models.Model):
 
   def __str__(self):
       return self.name
+
+class Photo(models.Model):
+  url = models.CharField(max_length=250)
+  star = models.OneToOneField(Star, on_delete=models.CASCADE)
+
+  def __str__(self):
+      return f"Photo for star_id: {self.star_id} @{self.url}."

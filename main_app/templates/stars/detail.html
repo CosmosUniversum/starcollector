@@ -7,13 +7,27 @@
   type="text/css" 
   href="{% static 'css/star-detail.css' %}"
 />
+<script defer src="{% static 'js/star-detail.js' %}"></script>
 {% endblock head %}
 
 {% block content %}
 
 <section class="star-container">
   <div class="star-img">
-    This will be where the star image is
+  {% if star.photo.url %}
+    <img 
+      src="{{star.photo.url}}" 
+      alt="A photo of {{star.name}}"
+      class="usr-img"
+    >
+  {% else %}
+    <img 
+      src="{% static 'images/Dark-Skies-NM-The-World-At-Large-.png' %}" 
+      alt="NM Dark Sky"
+      width='200'
+      height='100'
+    >
+  {% endif %}
   </div>
   <div class="star-details">
     <h1>{{ star.name }}</h1>
@@ -21,6 +35,20 @@
     <div class="star-actions">
       <a href="{% url 'stars_update' star.id %}" class="btn warn">Edit</a>
       <a href="{% url 'stars_delete' star.id %}" class="btn danger">Delete</a>
+      <h3>Change {{ star.name }}'s photo</h3>
+    <p id="file-name"></p>
+    <form 
+      action="{% url 'add_photo' star.id %}"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      {% csrf_token %}
+      <label class="btn secondary">
+        Choose photo
+        <input type="file" name="photo-file" id="file-input">
+      </label>
+      <button type="submit" class="btn submit">Upload Photo</button>
+    </form>
     </div>
   </div>
 </section>

@@ -19,7 +19,20 @@
       <a href="{% url 'stars_detail' star.id %}">
         <div class="card-content">
           <div class="card-img-container">
-            {% comment %} <img src="{% static 'images/navbar-bg.png' %}" alt="New Mexico Northern Hemisphere"> {% endcomment %}
+            {% if star.photo.url %}
+            <img 
+              src="{{star.photo.url}}" 
+              alt="A photo of {{star.name}}"
+              class="usr-img"
+            >
+          {% else %}
+            <img 
+              src="{% static 'images/Dark-Skies-NM-The-World-At-Large-.png' %}" 
+              alt="NM Dark Sky"
+              width='250px'
+              height='150px'
+            >
+          {% endif %}
             <h2 class="card-title">{{star.name}}</h2>
             <p>A {{star.type}} Star that is {{star.distance}} light years away from our solar system in the Constellation of {{star.constellation}}.</p>
           </div>
