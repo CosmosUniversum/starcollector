@@ -18,7 +18,7 @@
 }
 
 .usr-img {
-  width: 100%;
+  width: 93%;
   border-radius: var(--card-border-radius);
 }
 
@@ -28,12 +28,12 @@
 }
 
 .card h2 {
-  margin: 10px 0;
+  margin: 10px 5px;
   font-size: var(--font-xl);
 }
 
 .card p {
-  margin: 5px 0;
+  margin: 5px 5px;
   font-size: var(--font-reg);
 }
 .page-header img {
