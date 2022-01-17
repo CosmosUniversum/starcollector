@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from .models import Exoplanet, Star, Photo
 from main_app import models
 from .forms import ExoplanetForm
@@ -20,6 +21,7 @@ class Home(LoginView):
 def about(request):
   return render(request, 'about.html')
 
+@login_required(login_url='/')
 def stars_index(request):
   stars = Star.objects.filter(user=request.user)
   return render(request, 'stars/index.html', {'stars': stars})

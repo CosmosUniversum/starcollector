@@ -1,4 +1,5 @@
 html {
+  color: whitesmoke;
   box-sizing: border-box
 }
 
@@ -17,6 +18,15 @@ html {
     font-size: 62.5%
 }
 
+h1{
+  margin: 0px 0px 0px 30px;
+}
+
+a {
+  color: whitesmoke;
+  text-decoration: whitesmoke;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -29,8 +39,8 @@ body {
   --nav-bg: rgba(97, 31, 184, 0.7);
   --nav-bg-ff: rgba(89, 12, 124, 0.9);
   --borders: rgb(70, 7, 95) solid 2px;
-  --text-color: rgb(17, 20, 17);
-  --link-hover-color: rgb(44, 3, 110);
+  --text-color: rgb(236, 224, 240);
+  --link-hover-color: rgb(65, 63, 219);
   --button-bg: rgb(245, 245, 245);
   --button-bg-hover: rgb(226, 226, 226);
   --submit: rgb(26, 128, 0);
