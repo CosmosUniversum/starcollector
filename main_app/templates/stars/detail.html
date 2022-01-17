@@ -34,7 +34,7 @@
       />
     </div>
     <h3>Add an Exoplanet</h3>
-    <form method="post" class="subsection-content">
+    <form action="{% url 'add_exoplanet' star.id %}" method="post" class="subsection-content">
       {% csrf_token %}
       {{ exoplanet_form.as_p }}
       <button type="submit" class='btn submit'>Add Exoplanet</button>
