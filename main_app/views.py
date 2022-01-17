@@ -1,7 +1,7 @@
 from dataclasses import field
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Star
+from .models import Exoplanet, Star
 from main_app import models
 from .forms import ExoplanetForm
 
@@ -39,4 +39,14 @@ class StarUpdate(UpdateView):
 
 class StarDelete(DeleteView):
   model = Star
+  success_url = '/stars/'
+
+class ExoplanetUpdate(UpdateView):
+  model = Exoplanet
+  fields = ['name', 'atmosphere']
+  success_url = '/stars/'
+
+
+class ExoplanetDelete(DeleteView):
+  model = Exoplanet
   success_url = '/stars/'

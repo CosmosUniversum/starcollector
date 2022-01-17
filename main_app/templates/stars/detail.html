@@ -48,7 +48,9 @@
         {% for exoplanet in star.exoplanet_set.all %}
           <tr>
             <td>{{exoplanet.name}}</td>
-            <td>{{exoplanet.atmosphere}}</td>
+            <td>{{exoplanet.atmosphere}}
+            <a href="{% url 'exoplanet_update' exoplanet.id %}" class="btn warn">Edit</a>
+            <a href="{% url 'exoplanet_delete' exoplanet.id %}" class="btn danger">Delete</a></td>
           </tr>
         {% endfor %}
       </tbody>
