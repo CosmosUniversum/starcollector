@@ -13,4 +13,5 @@ urlpatterns = [
   path('stars/<int:star_id>/add_exoplanet/', views.add_exoplanet, name='add_exoplanet'),
   path('exoplanets/<int:pk>/update/', views.ExoplanetUpdate.as_view(), name='exoplanet_update'),
   path('exoplanets/<int:pk>/delete/', views.ExoplanetDelete.as_view(), name='exoplanet_delete'),
+  path('accounts/signup/', views.signup, name='signup'),
 ]

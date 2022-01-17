@@ -15,8 +15,14 @@
     {% else %}
       <h1>Add a Star</h1>
     {% endif %}
-    <img src="{% static 'images/Universe-man-sitting.jpg' %}" alt="A Universe Creating a star"/>
   </div>
+  <img 
+  src="{% static 'images/Universe-man-sitting.jpg' %}" 
+  alt="A Universe Creating a star"
+  height="450px"
+  width="300px"
+  />
+  <h3>Star Overlord is curious to your Discovery!</h3>
   <form action="" method="post" class="form-container">
     {% csrf_token %}
     <table>

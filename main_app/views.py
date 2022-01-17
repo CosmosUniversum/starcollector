@@ -2,6 +2,8 @@ from dataclasses import field
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 from .models import Exoplanet, Star, Photo
 from main_app import models
 from .forms import ExoplanetForm
@@ -19,7 +21,7 @@ def about(request):
   return render(request, 'about.html')
 
 def stars_index(request):
-  stars = Star.objects.all()
+  stars = Star.objects.filter(user=request.user)
   return render(request, 'stars/index.html', {'stars': stars})
 
 def stars_detail(request, star_id):
@@ -37,7 +39,11 @@ def add_exoplanet(request, star_id):
 
 class StarCreate(CreateView):
   model = Star
-  fields = '__all__'
+  fields = ['name', 'type', 'constellation', 'distance']
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
 
 class StarUpdate(UpdateView):
   model = Star
@@ -73,3 +79,17 @@ def add_photo(request, star_id):
     except Exception as err:
       print('An error occurred uploading file to S3: %s' % err)
     return redirect('stars_detail', star_id=star_id)
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('stars_index')
+    else:
+      error_message = 'Invalid Signup, try again.'
+  form = UserCreationForm()
+  context = {'form': form, 'error message': error_message}
+  return render(request, 'signup.html', context)

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Sign Up</h1>
+</div>
+<img 
+src="{% static 'images/Universe-man-sitting.jpg' %}" 
+alt="A Universe man sitting.jpg"
+height='450px'
+width='300px'
+/>
+<h3>Star Overlord would like you to be an Overlord as well!</h3>
+{% if error_message %}
+  <p class="red-text">{{ error_message }}</p>
+{% endif %}
+<form action="" method="post" class="form-container" autocomplete="off">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit" class="btn submit">Submit!</button>
+</form>
+
+{% endblock %}
